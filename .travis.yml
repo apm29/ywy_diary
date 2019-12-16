@@ -25,7 +25,7 @@ script:
 - hexo generate
 after_success:
 # 推送到aws服务器的Nginx文件夹
-- scp -o stricthostkeychecking=no -r public ubuntu@ec2-54-248-204-0.ap-northeast-1.compute.amazonaws.com:/home/vuetify-sample/
+- scp -o stricthostkeychecking=no -r public ubuntu@ec2-54-248-204-0.ap-northeast-1.compute.amazonaws.com:/home/vuetify-sample
 - cd ./public
 - git init
 - git add --all .
