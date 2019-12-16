@@ -21,7 +21,7 @@ install:
 # 不用yarn的话这里改成 npm i 即可
 - npm install
 script:
-- git clone https://github.com/Shen-Yu/hexo-theme-ayer.git themes/ayer
+#- git clone https://github.com/Shen-Yu/hexo-theme-ayer.git themes/ayer
 - hexo clean
 - hexo generate
 after_success:
