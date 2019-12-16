@@ -25,7 +25,7 @@ script:
 - hexo generate
 after_success:
 # 推送到aws服务器的Nginx文件夹
-- scp -o stricthostkeychecking=no -P 22 -r public ubuntu@54.248.204.0:/data/vue-sample/
+- scp -o stricthostkeychecking=no -P 22 -r public ubuntu@54.248.204.0:/home/vue-sample/
 - cd ./public
 - git init
 - git add --all .

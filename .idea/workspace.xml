@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="22" />
+            <state relative-caret-position="270">
+              <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -133,12 +133,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576497296524</updated>
-      <workItem from="1576497300479" duration="1947000" />
+      <workItem from="1576497300479" duration="2786000" />
     </task>
+    <task id="LOCAL-00001" summary="push to aws">
+      <created>1576500457738</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576500457738</updated>
+    </task>
+    <task id="LOCAL-00002" summary="push to aws">
+      <created>1576501066127</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576501066127</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1947000" />
+    <option name="totallyTimeSpent" value="2786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
@@ -167,6 +182,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="push to aws" />
+    <option name="LAST_COMMIT_MESSAGE" value="push to aws" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -177,8 +196,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="270">
+          <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
         </state>
       </provider>
     </entry>
