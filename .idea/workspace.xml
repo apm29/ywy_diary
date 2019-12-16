@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="27" column="125" lean-forward="true" selection-start-line="27" selection-start-column="125" selection-end-line="27" selection-end-column="125" />
+              <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -133,7 +133,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576497296524</updated>
-      <workItem from="1576497300479" duration="3356000" />
+      <workItem from="1576497300479" duration="3822000" />
     </task>
     <task id="LOCAL-00001" summary="push to aws">
       <created>1576500457738</created>
@@ -163,11 +163,25 @@
       <option name="project" value="LOCAL" />
       <updated>1576501871268</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="push to aws">
+      <created>1576502264863</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576502264863</updated>
+    </task>
+    <task id="LOCAL-00006" summary="push to aws">
+      <created>1576502661715</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576502661715</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3356000" />
+    <option name="totallyTimeSpent" value="3822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
@@ -175,11 +189,11 @@
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32952926" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32952926" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -211,7 +225,7 @@
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="27" column="125" lean-forward="true" selection-start-line="27" selection-start-column="125" selection-end-line="27" selection-end-column="125" />
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
         </state>
       </provider>
     </entry>
