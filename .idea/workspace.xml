@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="" />
+    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="add post">
+      <change afterPath="$PROJECT_DIR$/source/_posts/AndroidDevMetrics.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Behavior研究.MD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/CustomPainter.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Dart学习.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Databinding in kotlin.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/DroidGo架构思考.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Fragment.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Gradle学习.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/JetpackSetup.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/LiveDataAnalytics.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Navigation.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/PDFViewerInAndroid.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/RxCache.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/RxLifecycle学习.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Spring.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/TextView中显示Html内容.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/flutter.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/archer" beforeDir="false" afterPath="$PROJECT_DIR$/themes/archer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/archer/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/archer/_config.yml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -22,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="72">
+              <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -34,17 +55,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/archer/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-833">
-              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            <state relative-caret-position="206">
+              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/ayer/_config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <entry file="file://$PROJECT_DIR$/source/_posts/TextView中显示Html内容.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/Databinding in kotlin.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="214">
+                <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/Spring.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="70">
+                <caret line="39" column="70" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/flutter.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="173">
+                <caret line="288" column="21" selection-start-line="288" selection-start-column="21" selection-end-line="288" selection-end-column="21" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -85,7 +143,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>theme</find>
+      <find>```js</find>
     </findStrings>
+    <replaceStrings>
+      <replace>```dart</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -98,6 +160,8 @@
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/themes/archer/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/Databinding in kotlin.md" />
+        <option value="$PROJECT_DIR$/source/_posts/Spring.md" />
       </list>
     </option>
   </component>
@@ -106,7 +170,9 @@
     <option name="width" value="1440" />
     <option name="height" value="793" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="添加" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope '项目文件'; set:项目文件; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -122,17 +188,6 @@
             <path>
               <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="archives" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="source" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -140,29 +195,6 @@
               <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="source" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="_posts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="archer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ayer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="landscape" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -189,10 +221,19 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/archer/source/avatar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/_posts" />
+      <recent name="$PROJECT_DIR$/themes/archer/source/avatar" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/themes" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -216,7 +257,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576497296524</updated>
-      <workItem from="1576497300479" duration="7622000" />
+      <workItem from="1576497300479" duration="8474000" />
     </task>
     <task id="LOCAL-00001" summary="push to aws">
       <created>1576500457738</created>
@@ -316,14 +357,22 @@
       <option name="project" value="LOCAL" />
       <updated>1576507177206</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="theme change">
+      <created>1576507852568</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1576507852568</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7622000" />
+    <option name="totallyTimeSpent" value="8474000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
@@ -331,9 +380,10 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.45221114" />
+      <window_info anchor="bottom" id="Terminal" weight="0.45221114" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32952926" />
+      <window_info anchor="bottom" id="调试" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32952926" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -353,7 +403,9 @@
     <MESSAGE value="push to aws" />
     <MESSAGE value="theme/archer" />
     <MESSAGE value="push to github pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="push to github pages" />
+    <MESSAGE value="theme change" />
+    <MESSAGE value="add post" />
+    <option name="LAST_COMMIT_MESSAGE" value="add post" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/404.html">
@@ -432,17 +484,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/archer/_config.yml">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-833">
-          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        <state relative-caret-position="72">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/themes/archer/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        <state relative-caret-position="206">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/TextView中显示Html内容.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Databinding in kotlin.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="214">
+            <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Spring.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="70">
+            <caret line="39" column="70" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/flutter.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="173">
+            <caret line="288" column="21" selection-start-line="288" selection-start-column="21" selection-end-line="288" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
