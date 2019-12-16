@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="push to g">
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/archer/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/archer/_config.yml" afterDir="false" />
-    </list>
+    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,16 +22,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="36" column="57" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="57" />
+            <state relative-caret-position="132">
+              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/archer/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-833">
@@ -91,7 +88,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/themes/archer" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -192,7 +189,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/archer/source/avatar" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
@@ -219,7 +216,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576497296524</updated>
-      <workItem from="1576497300479" duration="7107000" />
+      <workItem from="1576497300479" duration="7622000" />
     </task>
     <task id="LOCAL-00001" summary="push to aws">
       <created>1576500457738</created>
@@ -305,23 +302,36 @@
       <option name="project" value="LOCAL" />
       <updated>1576506423497</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="push to github pages">
+      <created>1576507102414</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1576507102414</updated>
+    </task>
+    <task id="LOCAL-00014" summary="push to github pages">
+      <created>1576507177206</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1576507177206</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7107000" />
+    <option name="totallyTimeSpent" value="7622000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.45221114" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.45221114" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32952926" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -342,7 +352,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="push to aws" />
     <MESSAGE value="theme/archer" />
-    <option name="LAST_COMMIT_MESSAGE" value="theme/archer" />
+    <MESSAGE value="push to github pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="push to github pages" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/404.html">
@@ -421,17 +432,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/archer/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-833">
           <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
         </state>
       </provider>
     </entry>
