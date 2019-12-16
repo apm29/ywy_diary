@@ -1,3 +1,8 @@
+---
+title: Dart 语法
+date: 2019-12-11 21:11:20
+tags:  Kotlin DataBinding Android 
+---
 # DataBinding in kotlin
 
 ### DataBinding 引入

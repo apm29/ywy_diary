@@ -1,3 +1,8 @@
+---
+title: Gradle与Groovy
+date: 2019-12-11 21:11:20
+tags: Gradle Groovy
+---
 # Gradle与Groovy
 > Gradle是用来构建的一个框架
 

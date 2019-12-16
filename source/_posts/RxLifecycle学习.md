@@ -1,3 +1,8 @@
+---
+title: RxLifecycle
+date: 2019-12-11 21:11:20
+tags: Android
+---
 # RxLifecycle:
 基于第二个事件流(生命周期)来帮助我们自动完成一个序列(sequence)
 

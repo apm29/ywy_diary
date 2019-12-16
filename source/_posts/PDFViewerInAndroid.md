@@ -1,3 +1,8 @@
+---
+title: PDFViewer on Android
+date: 2019-12-11 21:11:20
+tags: Android
+---
 # Android中显示PDF
 
 iOS的WebView能从线上url直接显示pdf,而Android的WebView不能直接显示,

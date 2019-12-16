@@ -1,3 +1,10 @@
+---
+title: AndroidDevMetrics
+date: 2019-12-13 22:13:22
+tags: Android Tools
+---
+
+
 # AndroidDevMetrics
 > 项目地址  <href>https://github.com/apm29/AndroidDevMetrics</href>
 

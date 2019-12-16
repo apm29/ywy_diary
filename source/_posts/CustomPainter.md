@@ -1,3 +1,8 @@
+---
+title: CustomPaint
+date: 2019-12-11 21:11:20
+tags: Flutter Dart 
+---
 # CustomPaint
 The interface used by [CustomPaint] (in the widgets library) and
 [RenderCustomPaint] (in the rendering library).
