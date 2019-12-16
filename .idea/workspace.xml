@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="" />
+    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/themes/ayer" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -22,7 +24,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="222">
@@ -31,22 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/ayer/_config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/themes/ayer/source/images/cover6.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/themes/ayer" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -100,33 +90,6 @@
               <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ayer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ayer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="layout" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ayer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="screenshots" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="ayer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="source" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -186,7 +149,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576497296524</updated>
-      <workItem from="1576497300479" duration="5402000" />
+      <workItem from="1576497300479" duration="5667000" />
     </task>
     <task id="LOCAL-00001" summary="push to aws">
       <created>1576500457738</created>
@@ -255,7 +218,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5402000" />
+    <option name="totallyTimeSpent" value="5667000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
@@ -311,13 +274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/ayer/screenshots/hexo-theme-ayer.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -343,6 +299,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/ayer/source/images/cover6.jpg">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
