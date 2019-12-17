@@ -1,7 +1,8 @@
 ---
 title: Behavior
 date: 2019-12-11 21:11:20
-tags: Android 
+tags: 
+    - Android 
 ---
 # Behavior
 
