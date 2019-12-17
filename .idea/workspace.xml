@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="" />
+    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/NPM设置Registry.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/NPM设置Registry.md" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -49,12 +53,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/_posts/NPM设置Registry.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="75">
-                <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+              <first_editor relative-caret-position="479">
+                <caret line="37" selection-start-line="37" selection-end-line="37" />
               </first_editor>
               <second_editor />
             </state>
@@ -121,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="318">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -161,13 +165,13 @@
         <option value="$PROJECT_DIR$/source/_posts/JetpackSetup.md" />
         <option value="$PROJECT_DIR$/source/_posts/LiveData.md" />
         <option value="$PROJECT_DIR$/source/_posts/Navigation.md" />
-        <option value="$PROJECT_DIR$/source/_posts/NPM设置Registry.md" />
         <option value="$PROJECT_DIR$/source/_posts/PDFViewerInAndroid.md" />
         <option value="$PROJECT_DIR$/source/_posts/RxCache.md" />
         <option value="$PROJECT_DIR$/source/_posts/RxLifecycle学习.md" />
         <option value="$PROJECT_DIR$/source/_posts/Spring.md" />
         <option value="$PROJECT_DIR$/source/_posts/TextView中显示Html内容.md" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/NPM设置Registry.md" />
       </list>
     </option>
   </component>
@@ -194,36 +198,7 @@
             <path>
               <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="source" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="source" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="_posts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="source" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="categories" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="source" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tags" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/MyBlogs/yww_diary" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="themes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="archer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="yww_diary" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -292,7 +267,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576497296524</updated>
-      <workItem from="1576497300479" duration="11194000" />
+      <workItem from="1576497300479" duration="12904000" />
     </task>
     <task id="LOCAL-00001" summary="push to aws">
       <created>1576500457738</created>
@@ -427,23 +402,29 @@
       <option name="project" value="LOCAL" />
       <updated>1576583503263</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="tags">
+      <created>1576584514003</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1576584514004</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11194000" />
+    <option name="totallyTimeSpent" value="12904000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="793" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" weight="0.32952926" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.36091298" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.36091298" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="调试" />
       <window_info anchor="bottom" id="Messages" weight="0.32952926" />
@@ -703,16 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/NPM设置Registry.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/PDFViewerInAndroid.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -765,8 +736,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="318">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/NPM设置Registry.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="479">
+            <caret line="37" selection-start-line="37" selection-end-line="37" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
