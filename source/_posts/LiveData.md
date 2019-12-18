@@ -1,12 +1,14 @@
 ---
 title: LiveData
-date: 2019-12-16 22:13:22
-tags: 
-    - Android
+tags:
+  - Android
+categories: []
+toc: false
+date: 2019-12-17 06:13:22
 ---
+
 * # 简介
-  * `LiveData`是androidx.lifecycle-livedata包下的一个抽象类,实现了一种关联了生命周期的简单观察者模式,主要的功能就是用于视图层与数据间的单向一对多通知,一个`LiveData`会持有一个可观察的Data对象,一开始是处于`NOT_SET`状态,当用户通过setValue方法更新后,`LiveData`会遍历所有的observer(处于Active状态的),通知他们Data的更新.`LiveData`的行为会在`Lifecycle`范围内,避免很多Activity Leak和空指针  
-  **本文代码样例都是kotlin,LiveData的源码是java**
+  * `LiveData`是androidx.lifecycle-livedata包下的一个抽象类,实现了一种关联了生命周期的简单观察者模式,主要的功能就是用于视图层与数据间的单向一对多通知,一个`LiveData`会持有一个可观察的Data对象,一开始是处于`NOT_SET`状态,当用户通过setValue方法更新后,`LiveData`会遍历所有的observer(处于Active状态的),通知他们Data的更新.`LiveData`的行为会在`Lifecycle`范围内,避免很多Activity Leak和空指针 **本文代码样例都是kotlin,LiveData的源码是java**
 * # LiveData的使用
   ```kotlin
     //声明一个LiveData
