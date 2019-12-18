@@ -101,7 +101,6 @@ deploy:
   type: git
   repo: https://github.com/apm29/apm29.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master
-  message: Site updated:'YYYY-MM-DD HH:mm:ss'
   token: $GH_TOKEN
 
 jsonContent:
