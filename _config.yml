@@ -101,7 +101,8 @@ deploy:
   type: git
   repo: https://github.com/apm29/ywy_diary.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master
-  message: deploy by hexo
+  message: Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})
+  token: $GH_TOKEN
 
 jsonContent:
   meta: true
