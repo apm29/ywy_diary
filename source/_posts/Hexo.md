@@ -2,10 +2,12 @@
 title: Hexo
 tags:
   - Tools
+  - NPM
+  - travisci
 categories:
   - 笔记
 toc: false
-date: 2019-12-19 09:16:54
+date: 2019-12-19 17:16:54
 ---
 
 # Hexo,Github/TravisCi and AWS
