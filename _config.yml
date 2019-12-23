@@ -104,14 +104,14 @@ deploy:
   token: $GH_TOKEN
 
 plugins:
-gitalk:
-  clientID: 56084921ee41dbc56dcf
-  clientSecret: 310b08ccac484ff894dcb9fc292ab3d08e31264c
-  repo: https://github.com/apm29/apm29.github.io.git
-  owner: apm29
-  admin:
-    - apm29
-  distractionFreeMode: true
+  gitalk:
+    clientID: 56084921ee41dbc56dcf
+    clientSecret: 310b08ccac484ff894dcb9fc292ab3d08e31264c
+    repo: https://github.com/apm29/apm29.github.io.git
+    owner: apm29
+    admin:
+      - apm29
+    distractionFreeMode: true
 
 jsonContent:
   meta: true
