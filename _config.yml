@@ -107,7 +107,7 @@ plugins:
   gitalk:
     clientID: 56084921ee41dbc56dcf
     clientSecret: 310b08ccac484ff894dcb9fc292ab3d08e31264c
-    repo: apm29.github.io.git
+    repo: apm29.github.io
     owner: apm29
     admin:
       - apm29
