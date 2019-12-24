@@ -71,11 +71,11 @@ $ flutter doctor -v
 
 
 
-# 项目创建
+# 1.项目创建
 
 > 为了省事直接用AndroidStudio创建了
 
-## 命令行创建项目
+## 1.1 命令行创建项目
 
 * 简单创建
 ```
@@ -89,7 +89,7 @@ $ flutter create [项目名称]
 
 * `--[no-]androidx` 指定要不要使用Androidx支持库
 
-## 设置子模块
+## 1.2 设置子模块
 
 运行`flutter create --project-name [你的项目名称] -i swift -a kotlin --androidx` 之后项目根目录大概是这个样子滴
 
@@ -119,5 +119,28 @@ $ flutter create [项目名称]
 
 > 子模块设置完成,如果需要更新子模块/拉取服务端改动等,可以参考git子模块那篇文章
 
-  
+# 2.项目框架搭建
+
+从状态管理,路由管理,视图组件,动画,网络组件,本地存储,硬件交互等方面搭建新项目,尽量选择侵入性小的库
+
+## 2.1 状态管理
+之前的项目在状态管理方面用过`BLoC`和`Provider`,新的项目想试一试`flutter_redux`,`fish_redux`看了下太复杂了,小项目可能不太合适,有种大炮打蚊子的感觉...
+
+### flutter_redux 基本概念
+
+redux的基本概念:
+- store 保存数据
+- state 应用/数据状态
+- action view发出的动作
+- reducer 一个接收state,action返回新的state的函数
+- middleware 在action和reducer中间执行,一般用thunk_redux
+
+flutter_redux的组件:
+- StoreProvider store的提供者,类似于Proivder中各种Provider的概念
+- StoreConnector 类似于Provider中Consumer,响应变化.包含两个@require的函数:
+  - converter,用于将state转化为view_model
+  - builder,view_model转为view(widget)
+  - onInit:初始化操作
+
+
 
