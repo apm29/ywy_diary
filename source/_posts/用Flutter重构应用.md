@@ -129,11 +129,70 @@ $ flutter create [项目名称]
 ### flutter_redux 基本概念
 
 redux的基本概念:
-- store 保存数据
+- store 状态管理
 - state 应用/数据状态
 - action view发出的动作
 - reducer 一个接收state,action返回新的state的函数
-- middleware 在action和reducer中间执行,一般用thunk_redux
+- middleware 在action和reducer中间执行
+
+#### redux的Store
+`flutter_redux`依赖于`redux`包,所以我们也要先了解了`redux`里面的概念,`Store`是整个App的状态Owner,**唯一能改变`Store`中状态树的方法就是通过`Store`发送(`dispatch`)一个`Action`**,action会先通过`middleware`,如果没有被`middleware`中断,则会传递至`reducer`,`reducer`根据`action`改变`store`中的`state`完成`state`树的更新,当然具体逻辑可能更复杂一些. 
+
+	- 定义action: `final increment = 'INCREMENT';`
+	- 定义reducer: `int counterReducer(int state, action) => state+1` 只可以根据action来决定如何改变state,我这里为了简单就直接写个加一了
+	- 创建Store: `Store<int>(counterReducer,initialState:0)`
+	- 分发一个action: `store.dispatch(increment);` action可以是任意类型
+	- 然后store中的state(原来是0)就会改变
+**store提供了两种方式获得state实例:state属性 或者 onChange提供的Stream**
+
+看看构造方法全都明白了:
+```
+Store(
+    this.reducer, {
+    State initialState,
+    //middleware集合
+    List<Middleware<State>> middleware = const [],
+    //是否使用同步的Stream控制器(一般就false)
+    bool syncStream = false,
+
+    /// 若设置为true,在原来State和reducer处理过的State相同的情况下Store不会发送事件
+    bool distinct = false,
+  }) : _changeController = StreamController.broadcast(sync: syncStream) {
+    _state = initialState;
+    //创建分发器
+    _dispatchers = _createDispatchers(
+      middleware,
+      _createReduceAndNotify(distinct),
+    );
+  }
+```
+_createDispatchers: 创建一个NextDispatcher集合,放入middleware集合转换来的NextDispatcher,再放入_createReduceAndNotify转化来的NextDispatcher,这个集合就是dispatch方法的调用栈,dispatch方法会先调用第一个NextDispatcher
+- 再看看Middleware的定义
+```
+typedef dynamic Middleware<State>(
+  Store<State> store,
+  dynamic action,
+  NextDispatcher next,
+);
+```
+> 这里的NextDispatcher是对reducer和middleware的简单包装,让他们接受action并返回action(或者被拦截...所以定义里面返回值是dynamic)
+
+因为middleware都在栈顶,所以先调用middleware转换成的NextDispatcher,这个next就是下一个middleware或者reducer对应的NextDispatcher,若你在middleware中调用了next,这个调用链就会一直调用到最后知道reducer调用完成,完成对state的修改.(这个是不是叫责任链设计模式?)
+> 来个图 middleware--> middleware(我可以中断也可以往下传球) ---> .... --->reducer
+
+reducer完成了拼图的最后一块,最后的NextDispatcher,往StreamController(`_changeController`)add了一个修改后的state.看到这里恍然大悟,原来又是你:Stream,所以很好猜,下面章节要讲的Widget里用于局部更新的StoreConnector/StoreBuilder应该就是StreamBuilder包装下的东西.
+```
+ NextDispatcher _createReduceAndNotify(bool distinct) {
+    return (dynamic action) {
+      final state = reducer(_state, action);
+
+      if (distinct && state == _state) return;
+
+      _state = state;
+      _changeController.add(state);
+    };
+  }
+```
 
 flutter_redux的组件:
 - StoreProvider store的提供者,类似于Proivder中各种Provider的概念
@@ -141,6 +200,188 @@ flutter_redux的组件:
   - converter,用于将state转化为view_model
   - builder,view_model转为view(widget)
   - onInit:初始化操作
+ 
+#### StoreProvider
+继承自InheritedWidget,用于给所有子不见提供Store,里面有用的就一个Store对象,和其他状态管理组件例如Provider一样,有个静态方法`static Store<S> of<S>(BuildContext,{bool listen=true})`来获取实例. 几乎一模一样的参数.
 
+- 当该方法传入`listen = true`时
+	通过`inheritFromWidgetOfExactType`(这个方法在1.12已经被标记为deprecated,新的api是`dependOnInheritedWidgetOfExactType`,名字与意义更符合一点)获取provider,api文档说的很明显,会把调用者context注册,当该Type对应的InheritedWidget发生改变的时候将会rebuild该context对应的组件
 
+- 当`listen = false`时
+	通过`ancestorInheritedElementForWidgetOfExactType`(这个方法在1.12已经被标记为deprecated,新的api是`getElementForInheritedWidgetOfExactType`,)获取provider,文档说的是获取给定的Type最近的`InheritedElement`,然后再通过`InheritedElement`拿到`InheritedWidget`,也就是我们需要的provider.
 
+- 源码大概结构
+```
+class StoreProvider<S> extends InheritedWidget {
+  final Store<S> _store;
+
+  /// 通过Store和Child创建
+  const StoreProvider({
+    Key key,
+    @required Store<S> store,
+    @required Widget child,
+  })  : assert(store != null),
+        assert(child != null),
+        _store = store,
+        super(key: key, child: child);
+
+  ///用于获取Store实例,在initState中使用时要传listen = false
+  static Store<S> of<S>(BuildContext context, {bool listen = true}) {
+    final type = _typeOf<StoreProvider<S>>();
+    final provider = (listen
+        ? context.inheritFromWidgetOfExactType(type)
+        : context
+            .ancestorInheritedElementForWidgetOfExactType(type)
+            ?.widget) as StoreProvider<S>;
+
+    if (provider == null) throw StoreProviderError(type);
+
+    return provider._store;
+  }
+
+  // Dart中获取类型的方法,很多地方会用到
+  static Type _typeOf<T>() => T;
+
+  ///是否需要通知子Widget的判断方法
+  @override
+  bool updateShouldNotify(StoreProvider<S> oldWidget) =>
+      _store != oldWidget._store;
+}
+```
+
+#### StoreConnector
+这个类似于Provider中的Consumer,`class StoreConnector<S, ViewModel> extends StatelessWidget {}`,泛型S表示State类型,ViewModel表示从State类型转化来的model数据,用于生成Widget.这个组件实际只是给已给名叫`__StoreStreamListener`的StatefulWidget包装了下.我们先看看它的State干了什么能监听Store内的State变化.
+
+1.两个重要的属性
+  * **Stream<ViewModel> stream;**
+  *  **ViewModel latestValue;**
+
+2.initState方法
+  * 调用StoreConnector的onInit
+  * 在下一帧调用StoreConnector的onInitialBuild
+  * 通过StoreConnector的converter吧store转换成viewModel赋值给 latestValue
+  * 通过StoreConnector.store.onChange属性获得流(Stream),经过一系列操作转换成ViewModel流赋值给属性`stream`
+   ```
+	stream = widget.store.onChange
+        .where(_ignoreChange)
+        .map(_mapConverter)
+        // Don't use `Stream.distinct` because it cannot capture the initial
+        // ViewModel produced by the `converter`.
+        .where(_whereDistinct)
+        // After each ViewModel is emitted from the Stream, we update the
+        // latestValue. Important: This must be done after all other optional
+        // transformations, such as ignoreChange.
+        .transform(StreamTransformer.fromHandlers(handleData: _handleChange));
+
+     void _handleChange(ViewModel vm, EventSink<ViewModel> sink) {
+    	if (widget.onWillChange != null) {
+      	widget.onWillChange(latestValue, vm);
+    	}
+
+    	latestValue = vm;
+
+    	if (widget.onDidChange != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        	widget.onDidChange(latestValue);
+      	});
+    }
+
+    sink.add(vm);
+  }
+  ```
+> 这里有几个Stream操作符:where是筛选,map是映射,transform 方法就是把一个 Stream 作为输入，然后经过计算或数据转换，输出为另一个 Stream。另一个 Stream 中的数据类型可以不同于原类型，数据多少也可以不同
+
+所以其他方法都并不重要了,_createStream方法以及定义好了流中数据转换和过滤的方式,其他方法都是一些生命周期回调方便定制其他功能,最后看看build方法做了些什么事:
+
+```
+@override
+  Widget build(BuildContext context) {
+    return widget.rebuildOnChange
+        ? StreamBuilder<ViewModel>(
+            stream: stream,
+            builder: (context, snapshot) => widget.builder(
+              context,
+              latestValue,
+            ),
+          )
+        : widget.builder(context, latestValue);
+  }
+```
+
+没错!!!包装了下StreamBuilder,通过它监听Stream中的新数据,返回builder创建的新Widget.
+
+#### StoreBuilder
+
+其实和StoreConnector差不多,懒人版本的StoreConnector,少了个converter,state-->viewModel这部分就省了,直接build完事.其他功能都一毛一样.
+
+#### Redux包下提供的工具方法
+
+redux包提供了一些工具类工具方法,让我免去大量switch..case模板代码
+
+比如说我们先定义state和action
+```
+class AppState {
+  final List<Item> items;
+  AppState(this.items);
+}
+class LoadItemsAction {}
+class UpdateItemsAction {}
+class AddItemAction{}
+class RemoveItemAction {}
+class ShuffleItemsAction {}
+class ReverseItemsAction {}
+class ItemsLoadedAction<Item> {
+  final List<Item> items;
+  ItemsLoadedAction(this.items);
+}
+```
+我们现在有一个state保存一个item集合,有加载,更新,添加,删除等许多action,如果是之前的代码我们可能要写好多switch..case代码,像下面这样👇:
+```
+final appReducer = (AppState state, action) {
+  if (action is ItemsLoadedAction) {
+    return new AppState(action.items);
+  } else if (action is UpdateItemsAction) {
+    return ...;
+  } else if (action is AddItemAction) {
+    return ...;
+  } else if (action is RemoveItemAction) {
+    return ...;
+  } else if (action is ShuffleItemsAction) {
+    return ...;
+  } else if (action is ReverseItemsAction) {
+    return ...;
+  } else {
+    return state;
+  }
+};
+```
+
+redux提供了combineReducer方法和TypedReducer类来将多个小的reducer组合为一个reducer:
+```
+final removeItemReducer = (AppState state, RemoveItemAction action) {
+  return ...;
+}
+
+///....
+
+final Reducer<AppState> appReducer = combineReducers([
+  new TypedReducer<AppState, LoadTodosAction>(loadItemsReducer),
+  new TypedReducer<AppState, UpdateItemsAction>(updateItemsReducer),
+  new TypedReducer<AppState, AddItemAction>(addItemReducer),
+  new TypedReducer<AppState, RemoveItemAction>(removeItemReducer),
+  new TypedReducer<AppState, ShuffleItemAction>(shuffleItemsReducer),
+  new TypedReducer<AppState, ReverseItemAction>(reverseItemsReducer),
+]);
+```
+middleware当然也有:
+
+```
+ final List<Middleware<AppState>> middleware = [
+   new TypedMiddleware<AppState, LoadTodosAction>(loadItemsMiddleware),
+   new TypedMiddleware<AppState, AddTodoAction>(saveItemsMiddleware),
+   new TypedMiddleware<AppState, ClearCompletedAction>(saveItemsMiddleware),
+   new TypedMiddleware<AppState, ToggleAllAction>(saveItemsMiddleware),
+   new TypedMiddleware<AppState, UpdateTodoAction>(saveItemsMiddleware),
+   new TypedMiddleware<AppState, TodosLoadedAction>(saveItemsMiddleware),
+ ];
+```
