@@ -385,3 +385,272 @@ middleware当然也有:
    new TypedMiddleware<AppState, TodosLoadedAction>(saveItemsMiddleware),
  ];
 ```
+## 2.2 路由管理
+
+路由管理使用fluro,其实flutter框架自带的路由已经很好了,不过fluro可以往路由路径里加入参数,这个有些项目比较方便,可以自己取舍.
+
+### 引入
+```
+dependencies:
+  fluro: ^1.5.1
+```
+
+### 使用
+
+提供一个全局Router实例
+
+```
+import 'package:fluro/fluro.dart';
+
+class Application{
+ 
+  static Router router;
+
+  static void init() {
+    Router router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
+}
+```
+
+定义一个路由映射类
+```
+class Routes {
+  static String root = "/";
+  static String home = "/home";
+  static String login = "/login";
+  static String personalSettings = "/personal_settings";
+
+  static void configureRoutes(Router router) {
+    router.notFoundHandler = new Handler(handlerFunc: (
+      BuildContext context,
+      Map<String, List<String>> params,
+    ) {
+      print("ROUTE WAS NOT FOUND !!!");
+      return NotFoundPage();
+    });
+
+    /// 第一个参数是路由地址，第二个参数是页面跳转和传参，第三个参数是默认的转场动画，可以看上图
+    router.define(root, handler: splashHandler);
+    router.define(home, handler: homeHandler);
+    router.define(login, handler: loginHandler);
+    router.define(personalSettings, handler: personalSettingsHandler);
+  }
+}
+```
+可以看到我设置了四个路径,`'/'`为默认第一个页面,`configureRoutes`手动在main方法中调用来初始化Router,我给他设置了一个404页面,然后定义了各个路由的handler:
+```
+class NotFoundPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text('404 路由未找到'),
+      ),
+    );
+  }
+}
+
+/// 跳转到首页Splash
+final splashHandler = new Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return SplashPage();
+  },
+);
+
+final homeHandler = new Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return HomePage();
+  },
+);
+
+final personalSettingsHandler = new Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return PersonalSettingsPage();
+  },
+);
+
+final loginHandler = new Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return LoginPage();
+  },
+);
+```
+
+然后在main.dart中先调用下init:
+
+```
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // 初始化缓存,这个是自己包装的SharedPreferences工具
+  await Cache().init();
+  // 注册 fluro routes
+  Application.init();
+  runApp(FlutterReduxApp());
+}
+```
+
+然后就可以在其他地方使用了,当然你也可以再封装个路由跳转类:
+```
+Application.router.navigateTo(
+      context,
+      Routes.personalSettings,
+      transition: TransitionType.inFromBottom,
+    );
+```
+
+路由跳转类:(这边基本没用到参数...只支持String参数并且不能有中文),fluro可以定义转场动画,需要的可以去看看Github:[fluro](https://github.com/theyakka/fluro)
+```
+class AppRouter {
+  static Future toHomeAndReplaceSelf(BuildContext context) {
+    return Application.router.navigateTo(context, Routes.home, replace: true);
+  }
+
+  static Future toPersonal(BuildContext context) {
+    return Application.router.navigateTo(
+      context,
+      Routes.personalSettings,
+      transition: TransitionType.inFromBottom,
+    );
+  }
+
+  static Future toHome(BuildContext context, ActiveTab activeTab) {
+    store.dispatch(TabSwitchAction(activeTab.index, context));
+    return Application.router
+        .navigateTo(context, Routes.home, replace: true, clearStack: true);
+  }
+
+  static Future toLogin(BuildContext context) {
+    return Application.router.navigateTo(
+      context,
+      Routes.login,
+      transition
+          : TransitionType.inFromBottom,
+    );
+  }
+}
+```
+
+定义参数是这样的:
+```
+var usersHandler = Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+  return UsersScreen(params["id"][0]);
+});
+
+void defineRoutes(Router router) {
+  router.define("/users/:id", handler: usersHandler);
+
+  // it is also possible to define the route transition to use
+  // router.define("users/:id", handler: usersHandler, transitionType: TransitionType.inFromLeft);
+}
+```
+
+## 2.3 国际化
+
+如果您的应用可能会给另一种语言的用户使用，那么您需要“国际化”它。这意味着您在编写应用程序时需要为应用程序支持的每种语言环境， 设置“本地化”的一些值，如文本和布局。Flutter提供一些widgets和类，以帮助实现国际化，而Flutter的库本身也是国际化的。
+参考:[Flutter中文网](https://flutterchina.club/tutorials/internationalization/),[Flutter-国际化适配](https://juejin.im/post/5c701379f265da2d9b5e196a)
+
+### 导入flutter_localization包
+
+pubspec.yml文件:
+```
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+```
+
+### 引入
+
+指定`MaterialApp`的`localizationsDelegates`和`supportedLocales`：
+
+```
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+new MaterialApp(
+ localizationsDelegates: [
+   // ... app-specific localization delegate[s] here
+   GlobalMaterialLocalizations.delegate,
+   GlobalWidgetsLocalizations.delegate,
+ ],
+ supportedLocales: [
+    const Locale('en', 'US'), // English
+    const Locale('he', 'IL'), // Hebrew
+    // ... other locales the app supports
+  ],
+  // ...
+)
+```
+
+### 使用Flutter-i18n插件
+
+如果你已经成功安装插件，打开项目后，会发现自动添加以下两个文件：
+
+lib/generated/i18n.dart 主要的国际化文件，主要使用的类为S
+res/values/string_en.arb 该文件主要适配英文语言，内容为json格式
+修改:
+```
+MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+    );
+```
+
+- localizationsDelegates本地化委托参数
+- S.delegate 我们项目的本地化委托类,这个你不用管,他会根据你的arb文件自动生成对应的函数
+GlobalMaterialLocalizations.delegate和GlobalWidgetsLocalizations.delegate为
+- flutter_localizations插件包提供的委托，如果你使用MaterialApp这个部件的- - GlobalMaterialLocalizations.delegate这个可以不用
+- supportedLocales支持的本地化
+- S.delegate.supportedLocales我们项目支持的本地化，这个你不用管，它会在你添加arb文件时自动更新你的支持的本地化
+
+### 声明资源
+
+.arb文件
+```
+{
+	"title":'AppName'
+}
+```
+
+占位符:
+```
+{
+	"successMessage":"操作成功:$action"
+}
+```
+
+列表: 支持语法为：key+zero/one/two/few/many/other
+```
+{
+  "selectZero":"没有了",
+  "selectOne":"一个",
+  "selectTwo":"两个",
+  "selectFew":"一些",
+  "selectMany":"很多",
+  "selectOther":"其它"
+}
+```
+
+### 使用资源
+
+- 普通:`S.of(context).title`
+- 带占位符:`S.of(context).successMessage("登录")`
+- 列表
+ ```
+    S.of(context).select(0);//零个
+    S.of(context).select(1);//一个
+    S.of(context).select("many");//多个
+    S.of(context).select(null);//其它
+   ```
+
