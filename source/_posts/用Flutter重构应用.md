@@ -71,11 +71,11 @@ $ flutter doctor -v
 
 
 
-# 1.项目创建
+# 项目创建
 
 > 为了省事直接用AndroidStudio创建了
 
-## 1.1 命令行创建项目
+## 命令行创建项目
 
 * 简单创建
 ```
@@ -89,7 +89,7 @@ $ flutter create [项目名称]
 
 * `--[no-]androidx` 指定要不要使用Androidx支持库
 
-## 1.2 设置子模块
+## 设置子模块
 
 运行`flutter create --project-name [你的项目名称] -i swift -a kotlin --androidx` 之后项目根目录大概是这个样子滴
 
@@ -119,11 +119,11 @@ $ flutter create [项目名称]
 
 > 子模块设置完成,如果需要更新子模块/拉取服务端改动等,可以参考git子模块那篇文章
 
-# 2.项目框架搭建
+# 项目框架搭建
 
 从状态管理,路由管理,视图组件,动画,网络组件,本地存储,硬件交互等方面搭建新项目,尽量选择侵入性小的库
 
-## 2.1 状态管理
+## 状态管理
 之前的项目在状态管理方面用过`BLoC`和`Provider`,新的项目想试一试`flutter_redux`,`fish_redux`看了下太复杂了,小项目可能不太合适,有种大炮打蚊子的感觉...
 
 ### flutter_redux 基本概念
@@ -385,7 +385,7 @@ middleware当然也有:
    new TypedMiddleware<AppState, TodosLoadedAction>(saveItemsMiddleware),
  ];
 ```
-## 2.2 路由管理
+## 路由管理
 
 路由管理使用fluro,其实flutter框架自带的路由已经很好了,不过fluro可以往路由路径里加入参数,这个有些项目比较方便,可以自己取舍.
 
@@ -546,7 +546,7 @@ void defineRoutes(Router router) {
 }
 ```
 
-## 2.3 国际化
+## 国际化
 
 如果您的应用可能会给另一种语言的用户使用，那么您需要“国际化”它。这意味着您在编写应用程序时需要为应用程序支持的每种语言环境， 设置“本地化”的一些值，如文本和布局。Flutter提供一些widgets和类，以帮助实现国际化，而Flutter的库本身也是国际化的。
 参考:[Flutter中文网](https://flutterchina.club/tutorials/internationalization/),[Flutter-国际化适配](https://juejin.im/post/5c701379f265da2d9b5e196a)
