@@ -135,7 +135,7 @@ redux的基本概念:
 - reducer 一个接收state,action返回新的state的函数
 - middleware 在action和reducer中间执行
 
-#### redux的Store
+### redux的Store
 `flutter_redux`依赖于`redux`包,所以我们也要先了解了`redux`里面的概念,`Store`是整个App的状态Owner,**唯一能改变`Store`中状态树的方法就是通过`Store`发送(`dispatch`)一个`Action`**,action会先通过`middleware`,如果没有被`middleware`中断,则会传递至`reducer`,`reducer`根据`action`改变`store`中的`state`完成`state`树的更新,当然具体逻辑可能更复杂一些. 
 
 	- 定义action: `final increment = 'INCREMENT';`
@@ -201,7 +201,7 @@ flutter_redux的组件:
   - builder,view_model转为view(widget)
   - onInit:初始化操作
  
-#### StoreProvider
+### StoreProvider
 继承自InheritedWidget,用于给所有子不见提供Store,里面有用的就一个Store对象,和其他状态管理组件例如Provider一样,有个静态方法`static Store<S> of<S>(BuildContext,{bool listen=true})`来获取实例. 几乎一模一样的参数.
 
 - 当该方法传入`listen = true`时
@@ -249,7 +249,7 @@ class StoreProvider<S> extends InheritedWidget {
 }
 ```
 
-#### StoreConnector
+### StoreConnector
 这个类似于Provider中的Consumer,`class StoreConnector<S, ViewModel> extends StatelessWidget {}`,泛型S表示State类型,ViewModel表示从State类型转化来的model数据,用于生成Widget.这个组件实际只是给已给名叫`__StoreStreamListener`的StatefulWidget包装了下.我们先看看它的State干了什么能监听Store内的State变化.
 
 1.两个重要的属性
@@ -310,11 +310,11 @@ class StoreProvider<S> extends InheritedWidget {
 
 没错!!!包装了下StreamBuilder,通过它监听Stream中的新数据,返回builder创建的新Widget.
 
-#### StoreBuilder
+### StoreBuilder
 
 其实和StoreConnector差不多,懒人版本的StoreConnector,少了个converter,state-->viewModel这部分就省了,直接build完事.其他功能都一毛一样.
 
-#### Redux包下提供的工具方法
+### Redux包下提供的工具方法
 
 redux包提供了一些工具类工具方法,让我免去大量switch..case模板代码
 
@@ -653,4 +653,3 @@ GlobalMaterialLocalizations.delegate和GlobalWidgetsLocalizations.delegate为
     S.of(context).select("many");//多个
     S.of(context).select(null);//其它
    ```
-
