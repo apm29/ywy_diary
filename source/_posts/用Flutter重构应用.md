@@ -908,3 +908,199 @@ class FaceClipper extends CustomClipper<Path> {
 
 ```
 用ClipPath和自定义的CustomClipper裁剪了个人脸(大概吧.都是凑出来的)
+
+
+
+---
+
+## 简单封装
+
+### Dio简单封装
+之前的项目使用过Dio作为网络请求的框架,使用起来比较友好,因为是FlutterChina维护的项目,看文档和提issue都比较方便. 现在最新的版本是3.0,比我刚接触的时候成熟了不少,已经支持Multiple-part File,Post二进制流数据等功能.
+
+我们先搞一个单例,方便全局修改dio的配置
+```
+class Api {
+  Api._() {
+    init();
+  }
+
+  static bool printLog = true;
+  static Api _instance;
+
+  static Api getInstance() {
+    if (_instance == null) {
+      _instance = Api._();
+    }
+    return _instance;
+  }
+
+  factory Api() {
+    return getInstance();
+  }
+
+  Dio _dio;
+
+  void init() {
+    _dio = Dio(BaseOptions(
+      method: "POST",
+      connectTimeout: 10000,
+      receiveTimeout: 20000,
+      baseUrl: BaseUrl,
+    ));
+   _dio.interceptors.add(DioLogInterceptor());
+  }
+}
+```
+如图,隐藏主构造函数,提供一个没名字的工厂方法,这样获取实例的方式被简化为`Api()`
+
+`_init`方法只执行一次,初始化Dio实例,给他配好默认方法,超时参数,还有baseUrl,然后加入了一个日志拦截器(自己写的,比较简单),方便Debug,
+```
+_dio = Dio(BaseOptions(
+      method: "POST",
+      connectTimeout: 10000,
+      receiveTimeout: 20000,
+      baseUrl: BaseUrl,
+    ));
+   _dio.interceptors.add(DioLogInterceptor());
+```
+
+再定义一个请求返回值的模板类
+```
+class BaseResp<T> {
+  String status;
+  T data;
+  String token;
+  String text;
+
+  BaseResp(this.status, this.data, this.token, this.text);
+
+  bool get success => status == "1";
+}
+```
+
+在Api类中加入Post方法的封装:
+```
+Future<BaseResp<T>> post<T>(
+    String path, {
+    @required JsonProcessor<T> processor,
+    Map<String, dynamic> formData,
+    CancelToken cancelToken,
+    ProgressCallback onReceiveProgress,
+    ProgressCallback onSendProgress,
+    useFormData: false,
+  }) async {
+    assert(processor != null);
+    processor = processor ?? (dynamic raw) => null;
+    formData = formData ?? {};
+    cancelToken = cancelToken ?? CancelToken();
+    onReceiveProgress = onReceiveProgress ??
+        (count, total) {
+          ///默认接收进度
+        };
+    onSendProgress = onSendProgress ??
+        (count, total) {
+          ///默认发送进度
+        };
+    Response resp = await _dio.post(
+      path,
+      options: RequestOptions(
+        responseType: ResponseType.json,
+        headers: {
+          AuthorizationHeader: Cache().token,
+        },
+        contentType: useFormData
+            ? ContentTypeFormDataValue
+            : ContentTypeFormUrlEncodeValue,
+        data: useFormData ? FormData.fromMap(formData) : formData,
+      ),
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+    dynamic map;
+    if (resp.headers
+        .value(ContentTypeHeader)
+        .contains(ContentTypeTextPlainValue)) {
+      map = json.decode(resp.data);
+    } else {
+      map = resp.data;
+    }
+    dynamic status = map["status"];
+    dynamic text = map["text"];
+    dynamic token = map["token"];
+    dynamic _rawData = map["data"];
+    T data;
+    try {
+      if (status.toString() == '1') data = processor(_rawData);
+    } catch (e, s) {
+      print(e);
+      print(s);
+    }
+    return BaseResp<T>(
+        status.toString(), data, token.toString(), text.toString());
+  }
+
+  Future<BaseResp<T>> get<T>(
+    String path, {
+    @required JsonProcessor<T> processor,
+    Map<String, dynamic> queryMap,
+    CancelToken cancelToken,
+    ProgressCallback onReceiveProgress,
+  }) async {
+    assert(processor != null);
+    processor = processor ?? (dynamic raw) => null;
+    queryMap = queryMap ?? {};
+    cancelToken = cancelToken ?? CancelToken();
+    onReceiveProgress = onReceiveProgress ??
+        (count, total) {
+          ///默认接收进度
+        };
+    Response resp = await _dio.get(
+      path,
+      queryParameters: queryMap,
+      options: RequestOptions(
+          responseType: ResponseType.json,
+          headers: {
+            AuthorizationHeader: Cache().token,
+          },
+          queryParameters: queryMap,
+          contentType: ContentTypeFormUrlEncodeValue),
+      cancelToken: cancelToken,
+      onReceiveProgress: onReceiveProgress,
+    );
+    dynamic map;
+    if (resp.headers
+        .value(ContentTypeHeader)
+        .contains(ContentTypeTextPlainValue)) {
+      map = json.decode(resp.data);
+    } else {
+      map = resp.data;
+    }
+    dynamic status = map["status"];
+    dynamic text = map["text"];
+    dynamic token = map["token"];
+    dynamic _rawData = map["data"];
+    T data;
+    try {
+      if (status.toString() == '1') data = processor(_rawData);
+    } catch (e,s) {
+      print(e);
+      print(s);
+    }
+    return BaseResp<T>(
+        status.toString(), data, token.toString(), text.toString());
+  }
+```
+
+当然还有定义好json数据处理函数
+```
+typedef JsonProcessor<T> = T Function(dynamic json);
+```
+
+
+### FutureBuilder与网络请求
+
+FutureBuilder是Flutter Framework中提供的异步构建视图的一个Widget,提供给它一个Future类型的数据,它会执行future任务封装成AsyncSnapshot返回,并在error,success情况下rebuild.我们的网络工具一般都是封装成async方法,也就是返回值为Future的方法,我们可以给网络请求到视图显示这一步加入转场特效还有错误处理/重试功能.
+
+首先我们的FutureBuilder
