@@ -653,3 +653,258 @@ GlobalMaterialLocalizations.delegate和GlobalWidgetsLocalizations.delegate为
     S.of(context).select("many");//多个
     S.of(context).select(null);//其它
    ```
+
+
+
+# 插件的使用
+
+## camera 0.5.7+2
+
+### 引入
+
+pubspec.yml:
+```
+camera: ^0.5.7+2
+```
+
+### iOS权限
+info.plist
+```
+<key>NSCameraUsageDescription</key>
+<string>APP需要您的同意，才能访问相机进行拍照，如禁止将无法拍照更新信息</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>APP需要您的同意，才能访问麦克风进行录音，如禁止将无法录音发送语音信息</string>
+```
+
+### 获取Camera
+```
+List<CameraDescription> cameras = await availableCameras();
+```
+
+### 使用
+```
+class CameraApp extends StatefulWidget {
+  @override
+  _CameraAppState createState() => _CameraAppState();
+}
+
+class _CameraAppState extends State<CameraApp> {
+  CameraController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = CameraController(cameras[0], ResolutionPreset.medium);
+    controller.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!controller.value.isInitialized) {
+      return Container();
+    }
+    return AspectRatio(
+        aspectRatio:
+        controller.value.aspectRatio,
+        child: CameraPreview(controller));
+  }
+}
+```
+
+# Widget使用
+
+## ClipPath
+ClipPath传入一个Clipper,和Child,Clipper将会用getClip返回的path来裁剪Child
+
+示例:
+```
+import 'package:axj_app/generated/i18n.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+
+List<CameraDescription> cameras;
+
+class AuthPage extends StatefulWidget {
+  @override
+  _AuthPageState createState() => _AuthPageState();
+}
+
+class _AuthPageState extends State<AuthPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(S.of(context).authTitle),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.switch_camera),
+              onPressed: () {
+                switchCamera();
+              })
+        ],
+      ),
+      body: cameraReady && controllerReady
+          ? Stack(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.center,
+                  child: ClipPath(
+                    clipBehavior: Clip.antiAlias,
+                    clipper: FaceClipper(),
+                    child: AspectRatio(
+                      aspectRatio: controller.value.aspectRatio,
+                      child: CameraPreview(controller),
+                    ),
+                  ),
+                )
+              ],
+            )
+          : Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  CupertinoActivityIndicator(),
+                  SizedBox(height: 32),
+                  Text(S.of(context).loadingCameraHint)
+                ],
+              ),
+            ),
+    );
+  }
+
+  CameraController controller;
+
+  bool get cameraReady => cameras != null && cameras.isNotEmpty;
+
+  bool get controllerReady => controller?.value?.isInitialized ?? false;
+
+  int currentCameraIndex = 1;
+
+  @override
+  void initState() {
+    () async {
+      if (!cameraReady) {
+        cameras = await availableCameras();
+      }
+      await initializeCameraController();
+    }();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  void switchCamera() {
+    if (!cameraReady) {
+      return;
+    }
+    currentCameraIndex += 1;
+    if (currentCameraIndex == cameras.length) {
+      currentCameraIndex = 0;
+    }
+    initializeCameraController();
+  }
+
+  Future initializeCameraController() async {
+    setState(() {});
+    controller =
+        CameraController(cameras[currentCameraIndex], ResolutionPreset.high);
+    await controller.initialize();
+    await Future.delayed(Duration(milliseconds: 400));
+    if (!mounted) {
+      return;
+    }
+    setState(() {});
+  }
+}
+
+class FaceClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+
+    Rect faceRect =
+        Rect.fromLTWH(20, 20, size.width - 40, (size.width - 40) * 1.3);
+
+    path.moveTo(faceRect.topCenter.dx, faceRect.topCenter.dy);
+
+    Offset p1 = faceRect.topRight.translate(0, 0);
+    Offset p2 = faceRect.centerRight.translate(-10, 0);
+
+    path.quadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+
+    p1 = faceRect.bottomRight.translate(-30, -25);
+    p2 = faceRect.bottomCenter.translate(10, 0);
+
+    path.quadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+    p2 = faceRect.bottomCenter.translate(-10, 0);
+    path.lineTo(p2.dx, p2.dy);
+
+    p1 = faceRect.bottomLeft.translate(30, -25);
+    p2 = faceRect.centerLeft.translate(10, 0);
+
+    path.quadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+
+    p1 = faceRect.topLeft.translate(0, 0);
+    p2 = faceRect.topCenter.translate(0, 0);
+
+    path.quadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+
+    var rightEarRect = Rect.fromLTWH(
+      faceRect.centerRight.dx - 20,
+      faceRect.centerRight.dy - 35,
+      20,
+      60,
+    );
+    path.addArc(rightEarRect, -pi / 2, pi);
+
+    path.addPolygon([
+      rightEarRect.bottomCenter,
+      rightEarRect.bottomLeft,
+      rightEarRect.topCenter,
+    ], true);
+
+    var leftEarRect = Rect.fromLTWH(
+          faceRect.centerLeft.dx,
+          faceRect.centerLeft.dy - 35,
+          20,
+          60,
+        );
+    path.addArc(
+        leftEarRect,
+        pi / 2,
+        pi);
+
+    path.addPolygon([
+      leftEarRect.topCenter,
+      leftEarRect.bottomRight,
+      leftEarRect.bottomCenter,
+    ], true);
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) {
+    return false;
+  }
+}
+
+```
+用ClipPath和自定义的CustomClipper裁剪了个人脸(大概吧.都是凑出来的)
