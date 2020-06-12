@@ -21,6 +21,12 @@ pipeline {
       steps {
         sh 'npm run build'
       }
+      steps {
+        sh 'npm install -g hexo-cli'
+      }
+      steps {
+        sh 'hexo g'
+      }
     }
     stage('测试') {
       steps {
@@ -51,8 +57,8 @@ pipeline {
             sh 'ls -l'
             
             
-            sshPut (remote: remoteConfig, from: './dist/', into: '/home/nginx/www/dist-2')
-            sshCommand (remote: remoteConfig, command: 'mv /home/nginx/www/dist-2/* /home/nginx/www/')
+            sshPut (remote: remoteConfig, from: './public/', into: '/home/nginx/www/blog')
+            sshCommand (remote: remoteConfig, command: 'mv /home/nginx/www/blog/* /home/nginx/www/')
           }
         }
 
