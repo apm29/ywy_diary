@@ -21,6 +21,7 @@ pipeline {
       steps {
         sh 'npm run build'
         sh 'npm install -g hexo-cli'
+        sh 'hexo clean'
         sh 'hexo g'
       }
     }
