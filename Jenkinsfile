@@ -51,10 +51,10 @@ pipeline {
 
             // 本地创建一个 test.sh 脚本，用来发送到远端执行
             sh 'ls -l'
-            
+
             sshCommand (remote: remoteConfig, command: 'mkdir /home/nginx/www/blog/')
             sshPut (remote: remoteConfig, from: './public/', into: '/home/nginx/www/blog')
-            sshCommand (remote: remoteConfig, command: 'mv /home/nginx/www/blog/* /home/nginx/www/')
+            sshCommand (remote: remoteConfig, command: 'mv /home/nginx/www/blog/public/* /home/nginx/www/')
           }
         }
 
