@@ -20,11 +20,7 @@ pipeline {
     stage('构建') {
       steps {
         sh 'npm run build'
-      }
-      steps {
         sh 'npm install -g hexo-cli'
-      }
-      steps {
         sh 'hexo g'
       }
     }
