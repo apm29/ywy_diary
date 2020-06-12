@@ -15,24 +15,18 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="默认更改列表" />
+    <list default="true" id="cd802f73-0601-4406-8767-b8c252a03584" name="默认更改列表" comment="footer merge" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +79,7 @@
       <workItem from="1577094000318" duration="20000" />
       <workItem from="1577180398484" duration="2507000" />
       <workItem from="1590737237954" duration="966000" />
+      <workItem from="1591942371432" duration="417000" />
     </task>
     <task id="LOCAL-00001" summary="push to aws">
       <created>1576500457738</created>
@@ -233,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576591608824</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="footer merge">
+      <created>1591942629080</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1591942629080</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +246,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -258,7 +272,9 @@
     <MESSAGE value="theme change" />
     <MESSAGE value="add post" />
     <MESSAGE value="tags" />
-    <option name="LAST_COMMIT_MESSAGE" value="tags" />
+    <MESSAGE value="默认更改列表" />
+    <MESSAGE value="footer merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="footer merge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1151" y="547" width="588" height="486" key="find.popup" timestamp="1590737956627">
