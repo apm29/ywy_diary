@@ -51,8 +51,8 @@ pipeline {
             sh 'ls -l'
             
             
-            sshPut (remote: remoteConfig, from: './dist/', into: '/home/nginx/www/')
-            sshCommand (remote: remoteConfig, command: 'mv /home/nginx/www/dist/* /home/nginx/www/')
+            sshPut (remote: remoteConfig, from: './dist/', into: '/home/nginx/www/dist-2')
+            sshCommand (remote: remoteConfig, command: 'mv /home/nginx/www/dist-2/* /home/nginx/www/')
           }
         }
 
