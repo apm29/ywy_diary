@@ -53,7 +53,7 @@ pipeline {
             sh 'ls -l'
 
             sshPut (remote: remoteConfig, from: './public/', into: '/home/nginx/www/')
-            sshCommand (remote: remoteConfig, command: 'mv /home/nginx/www/public/* /home/nginx/www/')
+            sshCommand (remote: remoteConfig, command: 'mv -f /home/nginx/www/public/* /home/nginx/www/')
           }
         }
 
