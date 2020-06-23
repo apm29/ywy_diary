@@ -55,7 +55,6 @@ pipeline {
 
             sshRemove (remote: remoteConfig, path: '/home/nginx/www/public/')
             sshPut (remote: remoteConfig, from: './public/', into: '/home/nginx/www/')
-            sshCommand (remote: remoteConfig, command: 'rsync -av /home/nginx/www/public/* /home/nginx/www/')
           }
         }
 
