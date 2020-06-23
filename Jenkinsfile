@@ -14,7 +14,10 @@ pipeline {
     }
     stage('install') {
       steps {
+        sh 'git submodule init'
+        sh 'git submodule update'
         sh 'npm install'
+        sh 'ls -l themes/archer/'
       }
     }
     stage('构建') {
@@ -51,11 +54,12 @@ pipeline {
             remoteConfig.password = password
 
             // 本地创建一个 test.sh 脚本，用来发送到远端执行
-            sh 'ls -l'
+            sh 'ls -l ./public/'
 
             sshRemove (remote: remoteConfig, path: '/home/nginx/www/public/')
             sshPut (remote: remoteConfig, from: './public/', into: '/home/nginx/www/')
-            sshCommand (remote: remoteConfig, command: 'rsync -av /home/nginx/www/public/* /home/nginx/www/')
+            sshCommand(remote:remoteConfig,command:'cp -r /home/nginx/www/public/* ./')
+
           }
         }
 
