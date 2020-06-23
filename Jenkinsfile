@@ -14,6 +14,8 @@ pipeline {
     }
     stage('install') {
       steps {
+        sh 'git submodule init'
+        sh 'git submodule update'
         sh 'npm install'
         sh 'ls -l themes/archer/'
       }
@@ -57,7 +59,7 @@ pipeline {
             sshRemove (remote: remoteConfig, path: '/home/nginx/www/public/')
             sshPut (remote: remoteConfig, from: './public/', into: '/home/nginx/www/')
             sshCommand(remote:remoteConfig,command:'cp -r /home/nginx/www/public/* ./')
-            
+
           }
         }
 
