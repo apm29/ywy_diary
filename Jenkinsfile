@@ -15,6 +15,7 @@ pipeline {
     stage('install') {
       steps {
         sh 'npm install'
+        sh 'ls -l themes/archer/'
       }
     }
     stage('构建') {
