@@ -1,6 +1,6 @@
-[submodule "themes/ayer"]
-	path = themes/ayer
-	url = https://github.com/apm29/hexo-theme-ayer.git
-[submodule "themes/archer"]
-	path = themes/archer
-	url = https://github.com/apm29/hexo-theme-archer.git
+; [submodule "themes/ayer"]
+; 	path = themes/ayer
+; 	url = https://github.com/apm29/hexo-theme-ayer.git
+; [submodule "themes/archer"]
+; 	path = themes/archer
+; 	url = https://github.com/apm29/hexo-theme-archer.git
