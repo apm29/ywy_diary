@@ -51,7 +51,7 @@ pipeline {
             remoteConfig.password = password
 
             // 本地创建一个 test.sh 脚本，用来发送到远端执行
-            sh 'ls -l'
+            sh 'ls -l ./public/'
 
             sshRemove (remote: remoteConfig, path: '/home/nginx/www/public/')
             sshPut (remote: remoteConfig, from: './public/', into: '/home/nginx/www/')
