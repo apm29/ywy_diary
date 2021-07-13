@@ -1,6 +1,8 @@
 ---
 title: Linux/OSX 命令
-tags: []
+tags:
+  - Linux
+  - Shell
 categories: []
 toc: false
 date: 2020-01-07 11:05:29
@@ -15,3 +17,7 @@ date: 2020-01-07 11:05:29
 杀死进程 
 
 `kill pid`
+
+删除当前目录下除xx、xxx文件外的所有文件
+
+`rm -rf !(xx|xxx)`
